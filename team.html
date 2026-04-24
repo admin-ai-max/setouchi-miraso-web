@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メンバー | 瀬戸内みらい創産</title>
+  <meta name="description" content="瀬戸内みらい創産のメンバー紹介。香川・瀬戸内の課題解決に挑む若者たち。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .member-card-lg {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid #e5e3df;
+      align-items: start;
+    }
+    .member-card-lg:last-child { border-bottom: none; }
+    .member-photo-lg {
+      width: 180px; height: 180px;
+      border-radius: 50%; overflow: hidden;
+      background: var(--primary-pale);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .member-photo-lg img { width: 100%; height: 100%; object-fit: cover; }
+    .member-photo-placeholder-lg {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary); font-size: 0.65rem; letter-spacing: 0.1em;
+    }
+    .member-info-name {
+      font-family: var(--serif); font-size: 1.3rem;
+      letter-spacing: 0.12em; margin-bottom: 0.3rem;
+    }
+    .member-info-en { font-size: 0.78rem; color: var(--gray); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .member-info-role {
+      display: inline-block;
+      font-size: 0.72rem; letter-spacing: 0.1em;
+      padding: 0.2rem 0.8rem;
+      background: var(--primary-pale); color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+    .member-info-bio { font-size: 0.88rem; line-height: 2.2; color: #444; }
+    @media (max-width: 640px) {
+      .member-card-lg { grid-template-columns: 1fr; gap: 1.5rem; }
+      .member-photo-lg { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">LOGO</div>
+    瀬戸内みらい創産
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">会社について</a></li>
+    <li><a href="services.html">事業・サービス</a></li>
+    <li><a href="works.html">実績</a></li>
+    <li><a href="team.html">メンバー</a></li>
+    <li><a href="news.html">ニュース</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">お問い合わせ</a>
+  <div class="nav-hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="about.html">会社について</a>
+  <a href="services.html">事業・サービス</a>
+  <a href="works.html">実績</a>
+  <a href="team.html">メンバー</a>
+  <a href="news.html">ニュース</a>
+  <a href="contact.html">お問い合わせ</a>
+</div>
+
+<!-- ── Page Hero ── -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&q=80');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="page-hero-label">Team</p>
+    <h1 class="page-hero-title">メンバー</h1>
+  </div>
+</div>
+
+<!-- ── Lead ── -->
+<section class="bg-white">
+  <div class="section-inner">
+    <p class="section-label fade-up">Our Team</p>
+    <h2 class="section-title fade-up delay-1">香川を変えようとしている、<br>若者たちです。</h2>
+    <p class="section-lead fade-up delay-2">
+      バックグラウンドも専門もそれぞれ異なる私たちが集まった理由は、一つ。
+      地元・香川を、自分たちの手で変えたいという想いです。
+    </p>
+  </div>
+</section>
+
+<!-- ── Members ── -->
+<section class="bg-cream">
+  <div class="section-inner">
+
+    <div class="member-card-lg fade-up">
+      <div>
+        <div class="member-photo-lg">
+          <div class="member-photo-placeholder-lg">PHOTO</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="member-info-name">白井 航介</h3>
+        <p class="member-info-en">Kosuke Shirai</p>
+        <span class="member-info-role">代表 / 営業・渉外</span>
+        <p class="member-info-bio">
+          小学生の頃から探求活動が好きで、各地を訪れ多種多様な業種の方々から話を伺ってきた。
+          中学生のとき香川県のデジタル化推進活動を開始。高校2年でNPO法人かっかつを設立し、
+          中高生が地域に関わる場を作り上げた。県知事・市町村長との政策提言を経験し、
+          香川の課題解決に正面から向き合う。庵治石会社・琴平電鉄・丸亀市役所など、
+          行政・企業双方に幅広い人脈を持つ。
+        </p>
+      </div>
+    </div>
+
+    <div class="member-card-lg fade-up delay-1">
+      <div>
+        <div class="member-photo-lg">
+          <div class="member-photo-placeholder-lg">PHOTO</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="member-info-name">土田 淳真</h3>
+        <p class="member-info-en">Jumma Tsuchida</p>
+        <span class="member-info-role">AI・システム / ディレクション</span>
+        <p class="member-info-bio">
+          AI・システム開発を専門とし、Claude CodeをはじめとしたAIツールを実務に応用する技術を持つ。
+          ライティング経験も豊富で、ビジョンの言語化・コンテンツ制作も担う。
+          社内のDX推進と情報管理基盤の構築を主導。
+          「入力と意思決定を人間が担い、実行をAIが行う」という考え方のもと、
+          会社全体の業務効率化を推進している。
+        </p>
+      </div>
+    </div>
+
+    <div class="member-card-lg fade-up delay-2">
+      <div>
+        <div class="member-photo-lg">
+          <div class="member-photo-placeholder-lg">PHOTO</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="member-info-name">石川 昂輝</h3>
+        <p class="member-info-en">Koki Ishikawa</p>
+        <span class="member-info-role">デザイン / 3Dモデリング</span>
+        <p class="member-info-bio">
+          建築を学び、Rhinocerusをはじめとした3Dモデリングに精通する。
+          波紋をモチーフにした会社ロゴを設計するなど、デザインにおける高いセンスを持つ。
+          製造業・建築・伝統産業向けの3Dデジタル化支援を担当。
+          「香川の古い産業を、最先端のデジタル産業に塗り替える」を自らの使命として活動する。
+        </p>
+      </div>
+    </div>
+
+    <div class="member-card-lg fade-up delay-1">
+      <div>
+        <div class="member-photo-lg">
+          <div class="member-photo-placeholder-lg">PHOTO</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="member-info-name">吉村 倭</h3>
+        <p class="member-info-en">Yamato Yoshimura</p>
+        <span class="member-info-role">Web / 企画</span>
+        <p class="member-info-bio">
+          かっかつ時代からWebサイトの管理・運営を担い、実務的なWeb知識を持つ。
+          名刺管理・顧客情報の一元化など、社内の情報整理を率先して推進。
+          幅広い人脈を活かした営業サポートも行い、就活支援会社・地域企業との新たな連携を生み出している。
+        </p>
+      </div>
+    </div>
+
+    <div class="member-card-lg fade-up delay-2">
+      <div>
+        <div class="member-photo-lg">
+          <div class="member-photo-placeholder-lg">PHOTO</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="member-info-name">後藤 叶恵</h3>
+        <p class="member-info-en">Kanae Goto</p>
+        <span class="member-info-role">— （準備中）</span>
+        <p class="member-info-bio">
+          プロフィールを準備中です。
+        </p>
+      </div>
+    </div>
+
+    <div class="member-card-lg fade-up delay-1">
+      <div>
+        <div class="member-photo-lg">
+          <div class="member-photo-placeholder-lg">PHOTO</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="member-info-name">岡村 将大</h3>
+        <p class="member-info-en">Shota Okamura</p>
+        <span class="member-info-role">イベント企画</span>
+        <p class="member-info-bio">
+          イベント企画・運営の豊富な経験を持つ。
+          地域コミュニティとのつながりを活かし、プロジェクトの現場推進を担う。
+        </p>
+      </div>
+    </div>
+
+    <div class="member-card-lg fade-up delay-2">
+      <div>
+        <div class="member-photo-lg">
+          <div class="member-photo-placeholder-lg">PHOTO</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="member-info-name">伊藤 哲太</h3>
+        <p class="member-info-en">Tetsuta Ito</p>
+        <span class="member-info-role">— （準備中）</span>
+        <p class="member-info-bio">
+          プロフィールを準備中です。
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Join ── -->
+<div class="quote-strip">
+  <div class="quote-strip-bg" style="background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=1920&q=80');"></div>
+  <div class="quote-strip-content fade-up">
+    <p class="quote-strip-text">
+      ともに香川を変えていく仲間を、<br>
+      探しています。
+    </p>
+    <div style="margin-top: 2rem;">
+      <a href="contact.html" class="btn btn-white">話を聞きたい方はこちら</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="section-inner">
+    <p class="section-label fade-up">Contact</p>
+    <h2 class="section-title fade-up delay-1">まずは、話しましょう。</h2>
+    <p class="section-lead fade-up delay-2">
+      メンバーについての質問や、一緒に何かやりたいというご相談も歓迎です。
+    </p>
+    <a href="contact.html" class="btn btn-white fade-up delay-3">お問い合わせ</a>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="footer-left">
+    <p class="footer-logo">瀬戸内みらい創産</p>
+    <p class="footer-copy">© 2026 瀬戸内みらい創産. All rights reserved.</p>
+  </div>
+  <ul class="footer-links">
+    <li><a href="about.html">会社について</a></li>
+    <li><a href="services.html">事業・サービス</a></li>
+    <li><a href="works.html">実績</a></li>
+    <li><a href="team.html">メンバー</a></li>
+    <li><a href="news.html">ニュース</a></li>
+    <li><a href="contact.html">お問い合わせ</a></li>
+  </ul>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
