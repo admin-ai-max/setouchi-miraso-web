@@ -8,6 +8,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .media-list { margin-top: 2rem; }
+    .media-item {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid #e8e6e1;
+      font-size: 0.84rem;
+    }
+    .media-item:last-child { border-bottom: none; }
+    .media-item-date { color: var(--gray); font-size: 0.78rem; padding-top: 0.15rem; }
+    .media-item-body { line-height: 1.8; color: #444; }
+    .media-item-topic { font-weight: 500; color: var(--dark); margin-bottom: 0.2rem; }
+    .media-badge {
+      display: inline-block;
+      font-size: 0.63rem; letter-spacing: 0.08em;
+      padding: 0.1rem 0.45rem; border-radius: 2px;
+      margin-right: 0.3rem; vertical-align: middle;
+      background: var(--primary); color: #fff;
+    }
+    .media-badge.tv { background: #e07b3a; }
+    @media (max-width: 480px) {
+      .media-item { grid-template-columns: 4rem 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -92,10 +118,74 @@
       活動に関するメディア掲載情報を随時更新します。<br>
       取材・掲載に関するお問い合わせは<a href="contact.html" style="color: var(--primary);">こちら</a>からお願いします。
     </p>
-    <div class="media-placeholder fade-up delay-3">
-      <p>掲載実績を準備中です。<br>
-      メディア掲載が確定次第、順次掲載いたします。</p>
+    <div class="media-list fade-up delay-3">
+
+      <div class="media-item">
+        <div class="media-item-date">2024.05</div>
+        <div class="media-item-body">
+          <p class="media-item-topic"><span class="media-badge tv">TV</span>ほとせなNews（KSB系）</p>
+          地域活動・若者の取り組みとして取材・放映
+        </div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-item-date">2023.08</div>
+        <div class="media-item-body">
+          <p class="media-item-topic"><span class="media-badge tv">TV</span>西日本放送・瀬戸内海放送・山陽放送 ／ 四国新聞</p>
+          香川県知事との交流・意見交換会
+        </div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-item-date">2023.03</div>
+        <div class="media-item-body">
+          <p class="media-item-topic"><span class="media-badge tv">TV</span>BSよしもと（3時間生出演・コメンテーター）</p>
+          地域・若者活動についてコメンテーターとして出演
+        </div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-item-date">2023.03</div>
+        <div class="media-item-body">
+          <p class="media-item-topic">広報たかまつ「高松で輝く人」</p>
+          高松市の若者として特集掲載
+        </div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-item-date">2023.02</div>
+        <div class="media-item-body">
+          <p class="media-item-topic"><span class="media-badge tv">TV</span>西日本放送 ／ 日本経済新聞 ほか</p>
+          島巡り冊子・離島スタンプラリー制作
+        </div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-item-date">2022.09</div>
+        <div class="media-item-body">
+          <p class="media-item-topic"><span class="media-badge tv">TV</span>BSよしもと（50分生出演）</p>
+          地域活性化への取り組みについて
+        </div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-item-date">2022.03-04</div>
+        <div class="media-item-body">
+          <p class="media-item-topic"><span class="media-badge tv">TV</span>瀬戸内海放送・山陽放送 ／ 四国新聞・読売新聞</p>
+          NPO法人かっかつ 設立記者会見
+        </div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-item-date">2021.08</div>
+        <div class="media-item-body">
+          <p class="media-item-topic">四国新聞、産経新聞</p>
+          デジタル化推進・オンライン署名活動
+        </div>
+      </div>
+
     </div>
+    <p style="margin-top: 1.2rem; font-size: 0.78rem; color: var(--gray);">※ 主要なものを抜粋。通算50回超の掲載実績があります。詳細は<a href="works.html" style="color:var(--primary);">実績ページ</a>をご覧ください。</p>
   </div>
 </section>
 
@@ -103,7 +193,7 @@
 <section class="cta-section">
   <div class="section-inner">
     <p class="section-label fade-up">Contact</p>
-    <h2 class="section-title fade-up delay-1">取材・掲載のお問い合わせ</h2>
+    <h2 class="section-title fade-up delay-1">取材のお問い合わせも歓迎です</h2>
     <p class="section-lead fade-up delay-2">
       取材のご依頼・掲載に関するお問い合わせもお気軽にどうぞ。
     </p>

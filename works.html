@@ -4,10 +4,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>実績 | 瀬戸内みらい創産</title>
-  <meta name="description" content="瀬戸内みらい創産の実績・メディア掲載。NPO法人かっかつ設立・かっかつ祭・政策提言など。">
+  <meta name="description" content="瀬戸内みらい創産の実績・メディア掲載。NPO法人香川活性化生徒の会（かっかつ）設立・かっかつ祭・政策提言など。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .works-section-header {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 2px solid var(--primary);
+    }
+    .works-section-icon {
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+      color: var(--primary);
+    }
+    .works-section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+    .works-section-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      color: var(--dark);
+      margin: 0;
+    }
+    .works-section-sub {
+      font-size: 0.82rem;
+      color: var(--gray);
+      margin-top: 0.3rem;
+    }
+    /* メディア表 */
+    .media-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+      margin-top: 1.5rem;
+    }
+    .media-table th {
+      text-align: left;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      padding: 0.6rem 1rem 0.6rem 0;
+    }
+    .media-table td {
+      padding: 0.75rem 1rem 0.75rem 0;
+      border-bottom: 1px solid #e8e6e1;
+      vertical-align: top;
+      line-height: 1.7;
+      color: #444;
+    }
+    .media-table tr:last-child td { border-bottom: none; }
+    .media-table .col-date { width: 5.5rem; white-space: nowrap; color: var(--gray); font-size: 0.78rem; }
+    .media-table .col-topic { }
+    .media-table .col-media { color: #555; }
+    .media-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      padding: 0.1rem 0.5rem;
+      border-radius: 2px;
+      margin-right: 0.3rem;
+      vertical-align: middle;
+      background: var(--primary);
+      color: #fff;
+    }
+    .media-badge.tv { background: #e07b3a; }
+    .media-badge.radio { background: #5b7fa6; }
+    @media (max-width: 640px) {
+      .media-table .col-date { width: 4rem; font-size: 0.72rem; }
+      .media-table td { font-size: 0.78rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -54,18 +133,33 @@
     <p class="section-label fade-up">Track Record</p>
     <h2 class="section-title fade-up delay-1">これまでの活動・実績</h2>
     <p class="section-lead fade-up delay-2">
-      メンバーが創業前から積み重ねてきた実績をご紹介します。
-      会社設立は2026年ですが、私たちの活動の歴史はNPO法人の設立に始まります。
-      実績は随時更新していきます。
+      会社設立は2026年ですが、メンバーの活動の歴史はもっと前から始まっています。
+      NPO法人の立ち上げから政策提言、メディア出演まで、
+      私たちが積み重ねてきた歩みをご紹介します。
     </p>
   </div>
 </section>
 
-<!-- ── Works Grid ── -->
+<!-- ── NPO法人かっかつ ── -->
 <section class="bg-cream">
   <div class="section-inner">
-    <p class="section-label fade-up">Activities</p>
-    <h2 class="section-title fade-up delay-1">主な活動</h2>
+
+    <div class="works-section-header fade-up">
+      <svg class="works-section-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="22" cy="14" r="6" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="10" cy="18" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="34" cy="18" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M4 34c0-4.4 2.7-8 10-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M40 34c0-4.4-2.7-8-10-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M9 34c0-7.2 5.8-13 13-13s13 5.8 13 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <p class="works-section-label">NPO</p>
+        <h2 class="works-section-title">NPO法人香川活性化生徒の会（かっかつ）</h2>
+        <p class="works-section-sub">代表・白井航介が高校2年生のとき設立。香川県内の中高生が地域に関わる場づくりを目的に活動。</p>
+      </div>
+    </div>
+
     <div class="works-grid">
 
       <div class="work-card fade-up delay-1">
@@ -73,10 +167,12 @@
           <div class="work-placeholder">PHOTO</div>
         </div>
         <div class="work-card-body">
-          <p class="work-card-cat">NPO法人 / 地域活性</p>
+          <p class="work-card-cat">NPO法人 / 設立・運営</p>
           <h3 class="work-card-title">NPO法人かっかつ 設立・運営</h3>
           <p class="work-card-desc">
-            代表が高校2年生のときに設立。香川県内の中高生が好きなこと・得意なことを活かして地域に関われる場づくりを目的とし、多方面で活動。
+            香川県内の中高生が好きなこと・得意なことを活かして地域に関われる場をつくりたいという想いから、
+            高校2年生のときに四国初の高校生NPO法人を設立。
+            行政・企業・地域との橋渡し役として、多方面で活動を展開。
           </p>
         </div>
       </div>
@@ -89,7 +185,8 @@
           <p class="work-card-cat">イベント制作</p>
           <h3 class="work-card-title">かっかつ祭</h3>
           <p class="work-card-desc">
-            中高生が自分たちの「好き」を活かして出演するステージイベント。出演者・スタッフともに学生が担い、地域の若者が輝ける場を創出した。
+            中高生が自分たちの「好き」を活かして出演するステージイベント。
+            出演者・スタッフともに学生が担い、地域の若者が輝ける場を創出した。
           </p>
         </div>
       </div>
@@ -99,23 +196,49 @@
           <div class="work-placeholder">PHOTO</div>
         </div>
         <div class="work-card-body">
-          <p class="work-card-cat">啓発活動</p>
-          <h3 class="work-card-title">防災・環境保全啓発活動</h3>
+          <p class="work-card-cat">観光・コンテンツ制作</p>
+          <h3 class="work-card-title">島巡り冊子・スタンプラリー制作</h3>
           <p class="work-card-desc">
-            地域の防災意識向上および環境保全への関心を高めるための啓発活動を継続的に実施。若者目線の発信で幅広い世代に届けた。
+            離島を巡るルートを自分たちで取材し、冊子とスタンプラリーとして制作・配布。
+            日経新聞・西日本放送など複数メディアで取り上げられた。
           </p>
         </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 白井個人 ── -->
+<section class="bg-white">
+  <div class="section-inner">
+
+    <div class="works-section-header fade-up">
+      <svg class="works-section-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="22" cy="13" r="6.5" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M8 38c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M28 20l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M32 24h-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <p class="works-section-label">Individual</p>
+        <h2 class="works-section-title">白井 航介 個人としての活動</h2>
+        <p class="works-section-sub">NPO活動と並行して、デジタル化推進・政策提言・学校行事など個人としても活動。</p>
+      </div>
+    </div>
+
+    <div class="works-grid">
 
       <div class="work-card fade-up delay-1">
         <div class="work-card-img">
           <div class="work-placeholder">PHOTO</div>
         </div>
         <div class="work-card-body">
-          <p class="work-card-cat">観光・コンテンツ制作</p>
-          <h3 class="work-card-title">観光地スタンプラリー・パンフレット制作</h3>
+          <p class="work-card-cat">デジタル化推進</p>
+          <h3 class="work-card-title">香川県デジタル化推進活動</h3>
           <p class="work-card-desc">
-            香川県内の観光地を周遊するスタンプラリーの企画・運営、および観光パンフレットの制作。学生ならではの視点で地域の魅力を発信。
+            中学生のとき、デジタル庁創設を機に香川県のデジタル化への機運を高める活動を開始。
+            オンライン署名活動では四国新聞・産経新聞にも取り上げられた。
           </p>
         </div>
       </div>
@@ -128,7 +251,8 @@
           <p class="work-card-cat">政策提言 / 行政連携</p>
           <h3 class="work-card-title">県知事・市町村長との政策提言</h3>
           <p class="work-card-desc">
-            香川県知事・市町村長との意見交換会・政策提言の場に継続参加。若者の視点から香川の課題解決策を提言し、実現に向けた議論をリードした。
+            香川県知事・市町村長との意見交換会・政策提言の場に継続参加。
+            若者の視点から地域課題の解決策を提言し、メディアにも広く報道された。
           </p>
         </div>
       </div>
@@ -138,10 +262,10 @@
           <div class="work-placeholder">PHOTO</div>
         </div>
         <div class="work-card-body">
-          <p class="work-card-cat">デジタル化推進</p>
-          <h3 class="work-card-title">香川県デジタル化推進活動</h3>
+          <p class="work-card-cat">学校運営 / リーダーシップ</p>
+          <h3 class="work-card-title">高松高校 生徒会会長（2期）</h3>
           <p class="work-card-desc">
-            中学生の頃より香川県のデジタル化への機運を高める活動を開始。デジタル庁創設を機に、地域レベルでのDX推進に向けた啓発を継続した。
+            高松高校の生徒会長を2期務め、学校運営の改善と生徒の声を届ける場づくりに取り組んだ。
           </p>
         </div>
       </div>
@@ -150,17 +274,89 @@
   </div>
 </section>
 
-<!-- ── Media Coverage ── -->
-<section class="bg-white">
+<!-- ── メディア掲載 ── -->
+<section class="bg-cream">
   <div class="section-inner">
-    <p class="section-label fade-up">Media</p>
-    <h2 class="section-title fade-up delay-1">メディア掲載</h2>
+    <p class="section-label fade-up">Media Coverage</p>
+    <h2 class="section-title fade-up delay-1">メディア掲載実績</h2>
     <p class="section-lead fade-up delay-2">
-      活動実績に伴うメディア掲載情報を随時更新します。
+      これまでの活動で、テレビ・新聞・ラジオなど50回を超えるメディアに取り上げていただきました。
     </p>
-    <div class="media-placeholder fade-up delay-3">
-      <p>掲載情報を準備中です。<br>掲載実績が確定次第、こちらに掲載いたします。</p>
-    </div>
+
+    <table class="media-table fade-up delay-3">
+      <thead>
+        <tr>
+          <th class="col-date">年月</th>
+          <th class="col-topic">活動・テーマ</th>
+          <th class="col-media">掲載メディア</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-date">2021.08</td>
+          <td>デジタル化推進・オンライン署名活動</td>
+          <td>四国新聞、産経新聞</td>
+        </tr>
+        <tr>
+          <td class="col-date">2022.03</td>
+          <td>NPO法人かっかつ 設立記者会見</td>
+          <td>
+            <span class="media-badge tv">TV</span>瀬戸内海放送（KSB）、山陽放送（RSK）<br>
+            四国新聞、読売新聞
+          </td>
+        </tr>
+        <tr>
+          <td class="col-date">2022.04</td>
+          <td>NPO法人かっかつ 活動開始報告</td>
+          <td>四国新聞、読売新聞</td>
+        </tr>
+        <tr>
+          <td class="col-date">2022.09</td>
+          <td>地域活性化への取り組みについて</td>
+          <td>
+            <span class="media-badge tv">TV</span>BSよしもと（50分生出演）
+          </td>
+        </tr>
+        <tr>
+          <td class="col-date">2023.02</td>
+          <td>島巡り冊子・離島スタンプラリー制作</td>
+          <td>
+            <span class="media-badge tv">TV</span>西日本放送（RNC）<br>
+            日本経済新聞（日経新聞）、ほか複数紙
+          </td>
+        </tr>
+        <tr>
+          <td class="col-date">2023.03</td>
+          <td>地域・若者活動についてコメンテーター出演</td>
+          <td>
+            <span class="media-badge tv">TV</span>BSよしもと（3時間生出演、コメンテーター）
+          </td>
+        </tr>
+        <tr>
+          <td class="col-date">2023.03</td>
+          <td>高松市の若者として特集</td>
+          <td>広報たかまつ「高松で輝く人」</td>
+        </tr>
+        <tr>
+          <td class="col-date">2023.08</td>
+          <td>香川県知事との交流・意見交換会</td>
+          <td>
+            <span class="media-badge tv">TV</span>西日本放送（RNC）、瀬戸内海放送（KSB）、山陽放送（RSK）<br>
+            四国新聞
+          </td>
+        </tr>
+        <tr>
+          <td class="col-date">2024.05</td>
+          <td>地域活動・若者の取り組み</td>
+          <td>
+            <span class="media-badge tv">TV</span>ほとせなNews（KSB系）
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--gray);">※ 主要なものを抜粋。掲載実績は随時更新します。</p>
+
   </div>
 </section>
 
@@ -168,10 +364,10 @@
 <section class="cta-section">
   <div class="section-inner">
     <p class="section-label fade-up">Contact</p>
-    <h2 class="section-title fade-up delay-1">まずは、話しましょう。</h2>
+    <h2 class="section-title fade-up delay-1">ぜひ、お話を聞かせてください。</h2>
     <p class="section-lead fade-up delay-2">
       実績や活動内容について詳しく知りたい方も、<br>
-      お気軽にお問い合わせください。
+      お気軽にお声がけください。
     </p>
     <a href="contact.html" class="btn btn-white fade-up delay-3">お問い合わせ</a>
   </div>
