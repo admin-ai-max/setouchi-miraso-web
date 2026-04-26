@@ -13,7 +13,7 @@
   --white:         #fff;
   --serif:         'Noto Serif JP', 'Yu Mincho', serif;
   --sans:          'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
-  --nav-h:         68px;
+  --nav-h:         140px;
   --ease:          cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -36,15 +36,12 @@ a  { color: inherit; text-decoration: none; }
   height: var(--nav-h);
   z-index: 200;
   display: flex;
-  align-items: center;
-  padding: 0 clamp(1.5rem, 5vw, 4rem);
-  transition: background 0.45s var(--ease), box-shadow 0.45s var(--ease);
+  align-items: flex-start;
+  padding: 16px clamp(1.5rem, 5vw, 4rem) 0;
+  transition: background 0.45s var(--ease);
 }
 .nav.scrolled {
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 1px 28px rgba(0,0,0,0.07);
+  /* 背景は .nav-bg の mask が担当。ここでは透明 */
 }
 .nav-logo {
   font-family: var(--serif);
@@ -148,6 +145,27 @@ a  { color: inherit; text-decoration: none; }
   flex-shrink: 0;
 }
 .nav.scrolled .awaji-burger { color: var(--dark); }
+
+/* 山陽海岸シルエット背景（地理SVGによるマスク） */
+.nav-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background: transparent;
+  -webkit-mask-image: url('../images/nav-coast.svg');
+  mask-image: url('../images/nav-coast.svg');
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  transition: background 0.45s var(--ease);
+}
+.nav.scrolled .nav-bg {
+  background: rgba(255,255,255,0.96);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  filter: drop-shadow(0 6px 24px rgba(0,0,0,0.07));
+}
 
 /* mobile overlay */
 .nav-mobile {
@@ -713,24 +731,13 @@ section {
 
 /* ── COASTLINE DECORATION ────────────────────── */
 
-/* 山陽海岸（明石〜防府）— navの直下に固定表示 */
-.nav::after {
-  content: '';
-  position: absolute;
-  bottom: -26px;
-  left: 0; right: 0;
-  height: 26px;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 26' preserveAspectRatio='none'><path d='M0,0 H1440 L1440,18 C1410,24 1385,14 1355,20 C1325,25 1300,15 1270,19 L1260,26 L1240,18 C1210,23 1185,15 1155,19 C1125,23 1095,17 1065,21 C1035,25 1010,14 980,18 L970,26 L950,18 C920,22 890,16 860,20 C830,24 800,15 770,19 C740,23 715,17 685,21 L675,26 L655,19 C625,23 595,15 565,19 C535,23 505,17 475,21 C445,25 420,14 390,18 C360,22 330,16 300,20 C270,24 245,15 215,19 L205,26 L185,19 C155,23 125,15 95,19 C65,23 35,17 10,21 L0,22 Z' fill='%232c5f4a'/></svg>");
-  background-size: 100% 100%;
-}
-
 /* 北四国海岸（鳴門〜佐田岬）— footerの直前 */
 .coastline-shikoku {
   width: 100%;
-  height: 28px;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 28' preserveAspectRatio='none'><path d='M0,28 H1440 L1440,14 C1410,10 1380,16 1350,12 C1320,8 1290,14 1260,10 C1230,6 1200,14 1170,9 L1155,3 L1140,9 C1110,14 1080,8 1050,12 C1020,16 990,10 960,14 C930,18 900,12 870,16 C840,20 810,11 780,15 C750,19 720,13 690,17 C660,21 630,12 600,16 C570,20 540,14 510,18 C480,22 450,13 420,17 C390,21 360,15 330,19 C300,23 270,17 240,21 C210,25 185,18 165,22 L140,26 L115,18 C95,12 75,4 55,1 L35,0 L20,3 C10,7 0,13 0,18 Z' fill='%23111111'/></svg>");
+  height: 90px;
+  background-image: url('../images/footer-coast.svg');
   background-size: 100% 100%;
+  background-repeat: no-repeat;
   display: block;
 }
 
@@ -782,6 +789,15 @@ section {
 
 /* ── RESPONSIVE ─────────────────────────────── */
 @media (max-width: 960px) {
+  :root { --nav-h: 68px; }
+  .nav { align-items: center; padding: 0 clamp(1.5rem, 5vw, 4rem); }
+  .nav-bg { display: none; }
+  .nav.scrolled {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1px 28px rgba(0,0,0,0.07);
+  }
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
   .intro-section { grid-template-columns: 1fr; }
