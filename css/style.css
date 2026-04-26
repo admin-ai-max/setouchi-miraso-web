@@ -117,11 +117,17 @@ a  { color: inherit; text-decoration: none; }
 /* hamburger */
 .nav-hamburger {
   display: none;
-  flex-direction: column;
-  gap: 5px;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
   margin-left: auto;
   padding: 6px;
+}
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .nav-hamburger span {
   display: block;
@@ -133,6 +139,15 @@ a  { color: inherit; text-decoration: none; }
 .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* 淡路島アイコン */
+.awaji-burger {
+  width: 11px; height: 19px;
+  color: rgba(255,255,255,0.88);
+  transition: color 0.4s var(--ease);
+  flex-shrink: 0;
+}
+.nav.scrolled .awaji-burger { color: var(--dark); }
 
 /* mobile overlay */
 .nav-mobile {
@@ -695,6 +710,29 @@ section {
 .cta-section .section-title { color: var(--white); margin-left: auto; margin-right: auto; }
 .cta-section .section-lead { color: rgba(255,255,255,0.8); margin: 0 auto 2.5rem; }
 .cta-section .section-title + .section-lead { margin-top: -1rem; }
+
+/* ── COASTLINE DECORATION ────────────────────── */
+
+/* 山陽海岸（明石〜防府）— navの直下に固定表示 */
+.nav::after {
+  content: '';
+  position: absolute;
+  bottom: -26px;
+  left: 0; right: 0;
+  height: 26px;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 26' preserveAspectRatio='none'><path d='M0,0 H1440 L1440,18 C1410,24 1385,14 1355,20 C1325,25 1300,15 1270,19 L1260,26 L1240,18 C1210,23 1185,15 1155,19 C1125,23 1095,17 1065,21 C1035,25 1010,14 980,18 L970,26 L950,18 C920,22 890,16 860,20 C830,24 800,15 770,19 C740,23 715,17 685,21 L675,26 L655,19 C625,23 595,15 565,19 C535,23 505,17 475,21 C445,25 420,14 390,18 C360,22 330,16 300,20 C270,24 245,15 215,19 L205,26 L185,19 C155,23 125,15 95,19 C65,23 35,17 10,21 L0,22 Z' fill='%232c5f4a'/></svg>");
+  background-size: 100% 100%;
+}
+
+/* 北四国海岸（鳴門〜佐田岬）— footerの直前 */
+.coastline-shikoku {
+  width: 100%;
+  height: 28px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 28' preserveAspectRatio='none'><path d='M0,28 H1440 L1440,14 C1410,10 1380,16 1350,12 C1320,8 1290,14 1260,10 C1230,6 1200,14 1170,9 L1155,3 L1140,9 C1110,14 1080,8 1050,12 C1020,16 990,10 960,14 C930,18 900,12 870,16 C840,20 810,11 780,15 C750,19 720,13 690,17 C660,21 630,12 600,16 C570,20 540,14 510,18 C480,22 450,13 420,17 C390,21 360,15 330,19 C300,23 270,17 240,21 C210,25 185,18 165,22 L140,26 L115,18 C95,12 75,4 55,1 L35,0 L20,3 C10,7 0,13 0,18 Z' fill='%23111111'/></svg>");
+  background-size: 100% 100%;
+  display: block;
+}
 
 /* ── FOOTER ─────────────────────────────────── */
 .footer {
