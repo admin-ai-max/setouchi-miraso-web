@@ -65,7 +65,7 @@ if (form) {
     const message = form.querySelector('[name="message"]')?.value || '';
     const body = `お名前：${name}\n会社・団体名：${company}\nメールアドレス：${email}\n\n${message}`;
     window.location.href =
-      `mailto:info@setouchi-miraso.com` +
+      `mailto:k.shirai@setouchi-miraso.com` +
       `?subject=${encodeURIComponent(subject)}` +
       `&body=${encodeURIComponent(body)}`;
   });
