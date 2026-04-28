@@ -56,11 +56,23 @@ a  { color: inherit; text-decoration: none; }
 }
 .nav.scrolled .nav-logo { color: var(--primary); }
 
-/* logo mark in nav */
+/* logo mark + type in nav */
 .nav-logo-mark {
   width: 32px; height: 32px;
   flex-shrink: 0;
   object-fit: contain;
+  filter: invert(1);
+  transition: filter 0.4s;
+}
+.nav-logo-type {
+  height: 20px; width: auto;
+  object-fit: contain;
+  filter: invert(1);
+  transition: filter 0.4s;
+}
+.nav.scrolled .nav-logo-mark,
+.nav.scrolled .nav-logo-type {
+  filter: none;
 }
 
 .nav-links {

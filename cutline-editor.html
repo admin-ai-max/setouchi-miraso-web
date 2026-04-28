@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>ヘッダー形状エディター v6</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #111; color: #eee; font-family: sans-serif; padding: 12px; }
+h2 { font-size: 12px; color: #888; margin-bottom: 4px; }
+.label { font-size: 10px; color: #aaa; margin-bottom: 8px; line-height: 1.8; }
+.panel { background: #222; border-radius: 6px; padding: 10px; margin-bottom: 12px; }
+svg { width: 100%; display: block; }
+.info { font-size: 10px; color: #666; margin-top: 4px; font-family: monospace; }
+.btn { padding: 8px 18px; background: #4a8f70; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; margin-top: 8px; }
+.copy-box { margin-top: 6px; padding: 6px; background: #000; border-radius: 4px; font-size: 9px; font-family: monospace; color: #4fc; word-break: break-all; white-space: pre-wrap; max-height: 100px; overflow-y: auto; }
+</style>
+</head><body>
+
+<div class="panel">
+  <h2>① 水色のラインを上下ドラッグ → ナビ高さを調整</h2>
+  <p class="label">
+    海岸線は<strong>等倍・左右比率固定</strong>でページ幅に収まるよう表示されます。<br>
+    <span style="color:cyan;">━━ 水色ライン</span>：ナビ上端（ページ最上部）<br>
+    <span style="color:rgba(255,255,255,0.55);">- - 白点線</span>：ナビ最低高さ（MIN_H）の位置
+  </p>
+  <svg id="svg1" viewBox="0 0 800 344" style="height:260px; background:#2a5040; touch-action:none;">
+    <!-- 全海岸線 -->
+    <polyline id="coastAll" fill="none" stroke="rgba(255,210,60,0.65)" stroke-width="1.2"/>
+    <!-- 最低高さ基準線 -->
+    <line id="minLine" x1="0" x2="800" y1="0" y2="0"
+      stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-dasharray="5,3"/>
+    <!-- ナビ上端ライン -->
+    <line id="topLine" x1="0" x2="800" y1="0" y2="0"
+      stroke="cyan" stroke-width="1.5"/>
+    <!-- ドラッグハンドル -->
+    <circle id="hPan" r="11" fill="cyan" stroke="#000" stroke-width="1.5" cx="400" cy="0" style="cursor:ns-resize;"/>
+    <text id="lPan" font-size="10" fill="#000" text-anchor="middle" font-weight="bold" x="400" y="0" dy="3.8">↕</text>
+  </svg>
+  <div class="info" id="info1">—</div>
+</div>
+
+<div class="panel">
+  <h2>② ナビバー見た目シミュレーション（ページ最上部に固定）</h2>
+  <div id="previewDiv" style="position:relative; overflow:hidden; border-radius:4px; min-height:30px;">
+    <img src="images/hero.jpg" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center;">
+    <svg id="navSvg" preserveAspectRatio="none"
+      style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;">
+      <defs>
+        <filter id="sf" x="-5%" y="-5%" width="110%" height="120%">
+          <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.1"/>
+        </filter>
+      </defs>
+      <path id="navFill" fill="white" filter="url(#sf)"/>
+    </svg>
+    <div style="position:absolute;top:0;left:0;right:0;display:flex;align-items:flex-start;padding:10px 20px 0;z-index:10;">
+      <span style="font-size:13px;font-weight:700;color:#1a3a2a;letter-spacing:0.05em;white-space:nowrap;padding-top:4px;">瀬戸内みらい創産</span>
+      <div style="margin-left:auto;display:flex;gap:14px;padding-top:6px;">
+        <span style="font-size:9px;color:#333;">会社について</span>
+        <span style="font-size:9px;color:#333;">事業・サービス</span>
+        <span style="font-size:9px;color:#333;">実績</span>
+        <span style="font-size:9px;color:#4a8f70;font-weight:600;">お問い合わせ</span>
+      </div>
+    </div>
+  </div>
+  <div class="info" id="info2">← ①の水色ラインをドラッグするとここが更新されます</div>
+</div>
+
+<div class="panel">
+  <button class="btn" onclick="exportPath()">SVGをコピー（nav-coast.svg用）</button>
+  <div class="copy-box" id="exportBox">← ボタンを押すと出力されます</div>
+</div>
+
+<script>
+const SP9=[[799.0,254.7],[796.8,257.8],[797.8,260.2],[797.6,261.8],[795.5,261.3],[793.9,262.8],[793.1,260.5],[795.3,258.4],[794.6,256.7],[782.3,255.5],[778.4,255.0],[759.8,249.1],[754.0,247.9],[748.0,243.9],[746.7,242.4],[746.7,240.7],[747.4,239.3],[745.9,237.0],[743.1,234.8],[741.0,234.4],[739.2,232.7],[741.1,229.8],[748.6,228.9],[747.3,227.3],[740.8,223.3],[738.4,222.3],[737.2,220.7],[734.9,220.9],[731.1,218.7],[727.1,218.6],[726.8,216.5],[722.5,214.5],[719.6,211.5],[717.0,206.7],[712.7,204.6],[706.0,205.5],[705.8,202.9],[707.7,202.9],[707.5,201.3],[706.5,199.8],[710.5,196.8],[707.5,196.2],[707.3,193.8],[709.3,192.0],[712.0,191.8],[717.1,189.8],[718.1,187.8],[718.3,186.0],[717.1,184.8],[711.7,182.7],[709.6,182.4],[712.2,178.1],[713.6,177.6],[714.2,175.5],[713.2,173.6],[716.5,173.5],[721.4,173.8],[721.7,172.1],[718.7,167.3],[716.5,167.5],[714.8,162.2],[712.8,160.3],[709.4,158.1],[705.4,157.2],[706.7,154.8],[711.0,150.7],[724.1,147.6],[730.2,143.3],[738.2,136.7],[742.4,131.8],[744.9,129.6],[744.9,125.3],[747.2,124.7],[749.4,122.5],[750.1,120.3],[750.3,113.8],[749.3,110.7],[748.8,107.5],[750.0,103.3],[746.0,104.7],[743.7,103.7],[740.9,101.3],[734.0,101.6],[734.1,104.9],[729.8,105.2],[730.0,102.2],[725.5,103.5],[728.4,108.6],[724.4,108.0],[723.6,105.2],[721.2,105.5],[721.0,108.5],[711.8,109.9],[707.7,111.5],[703.5,111.8],[699.8,109.7],[695.0,109.8],[692.6,109.5],[689.7,106.5],[686.0,105.2],[683.5,103.4],[676.6,99.6],[672.4,98.4],[667.6,95.1],[665.3,93.9],[659.2,92.7],[642.8,93.9],[640.5,93.0],[636.8,94.8],[633.8,94.2],[633.1,93.1],[633.2,91.3],[630.9,92.6],[630.5,94.5],[628.9,94.8],[625.6,98.5],[622.8,99.0],[619.3,97.3],[616.3,98.9],[615.6,100.3],[615.8,101.7],[612.4,101.8],[606.0,100.4],[602.4,100.0],[599.0,98.7],[597.4,98.8],[598.5,100.8],[599.7,101.3],[606.3,102.6],[602.0,103.4],[598.9,107.0],[595.9,108.4],[593.6,108.8],[590.7,110.3],[591.5,110.9],[593.8,110.9],[593.5,113.2],[589.7,115.4],[585.3,116.8],[581.6,117.3],[579.8,116.8],[577.0,114.4],[574.6,113.9],[570.3,113.9],[568.4,114.2],[565.2,115.9],[563.0,116.6],[561.5,117.8],[562.1,119.9],[563.7,120.7],[565.6,119.5],[569.0,116.4],[573.4,115.4],[575.5,115.8],[576.9,117.3],[576.8,119.6],[575.2,121.0],[571.6,123.4],[572.5,125.1],[568.9,124.0],[566.8,126.8],[565.2,131.0],[562.9,133.8],[553.1,132.4],[548.4,132.5],[549.0,135.6],[545.0,134.9],[543.2,132.3],[541.7,129.2],[538.5,126.9],[537.7,127.4],[536.3,125.6],[533.0,124.4],[529.1,126.3],[525.5,127.5],[519.9,129.9],[518.2,131.6],[516.4,132.8],[514.1,133.1],[511.7,134.6],[503.9,137.3],[508.8,132.5],[510.5,129.8],[507.8,128.7],[506.4,129.0],[502.2,131.2],[498.8,131.1],[497.4,131.7],[496.9,133.8],[497.8,134.6]];
+const SP4S=[[497.8,134.6],[496.6,137.2],[487.5,146.9],[485.6,148.3],[481.8,149.8],[478.5,150.2],[478.5,148.0],[483.0,146.8],[484.2,144.6],[482.9,143.2],[480.2,142.5],[477.1,142.6],[477.1,141.6],[479.4,140.1],[478.1,137.7],[475.7,137.0],[473.4,143.3],[471.3,145.0],[469.0,146.2],[467.4,147.8],[469.9,149.4],[470.8,152.0],[470.0,154.4],[467.8,155.5],[465.3,154.0],[464.0,154.0],[462.6,155.2],[460.2,156.0],[457.3,158.4],[456.1,159.0],[454.0,158.1],[453.3,155.9],[453.5,150.8],[454.1,150.9],[457.4,147.3],[459.3,147.7],[458.7,151.2],[461.2,150.7],[463.0,146.5],[465.7,146.0],[465.7,145.1],[461.3,142.6],[457.4,142.3],[456.1,141.6],[454.4,142.6],[455.2,146.5],[451.8,148.9],[446.6,150.1],[433.2,151.1],[429.5,152.4],[425.7,154.6],[423.6,151.6],[421.3,152.6],[418.9,155.0],[416.2,156.4],[414.2,156.8],[416.2,160.2],[415.4,161.2],[413.5,161.6],[409.7,161.6],[406.7,162.4],[400.8,165.8],[397.1,165.9],[395.4,163.3],[394.2,163.6],[392.8,165.1],[389.4,166.7],[387.9,166.6],[386.7,165.1],[388.6,163.3],[387.4,161.8],[385.2,160.0],[383.7,156.8],[381.5,154.6],[381.4,152.9],[382.1,150.9],[381.5,149.4],[384.9,148.6],[383.2,146.3],[380.6,145.1],[378.6,146.1],[376.1,146.7],[373.6,146.7],[369.0,144.4],[366.2,144.7],[361.5,146.8],[357.2,149.6],[345.9,160.7],[347.0,162.5],[347.9,165.1],[348.5,169.8],[347.9,172.9],[344.7,175.2],[343.2,177.2],[342.9,182.8],[344.4,187.8],[344.7,192.3],[340.7,196.3],[335.7,197.8],[334.8,198.8],[334.6,202.0],[335.3,204.3],[337.9,209.1],[338.1,211.1],[336.7,212.5],[331.1,215.2],[327.3,218.0],[324.8,219.2],[322.9,219.3],[323.3,217.2],[326.0,215.4],[327.3,212.9],[330.2,213.3],[331.5,212.5],[332.0,210.7],[331.5,208.4],[330.3,207.2],[325.0,204.3],[317.0,202.0],[314.2,201.5],[310.3,197.2],[304.2,194.6],[301.3,192.5],[298.9,191.2],[296.6,191.7],[293.9,194.6],[291.2,195.6],[289.7,194.8],[289.5,192.8],[293.3,190.3],[295.4,188.4],[292.3,186.2],[284.9,183.9],[280.1,185.4],[278.2,185.0],[276.6,185.9],[272.7,187.3],[267.8,187.6],[266.1,186.3],[265.1,187.6],[266.7,190.7],[266.1,192.1],[262.9,192.7],[262.2,190.4],[260.8,191.1],[255.7,189.4],[253.4,187.4],[252.2,186.9],[250.4,187.6],[251.1,189.2],[248.8,191.1],[247.9,193.2],[246.9,193.7],[245.2,192.8],[244.3,191.1],[242.9,193.2],[240.8,192.8],[241.9,191.1],[242.3,188.8],[241.8,186.8],[239.5,186.8],[236.1,192.3],[233.1,195.8],[231.8,196.9],[225.5,200.3],[223.7,200.5],[222.7,198.9],[219.6,199.2],[219.0,197.3],[216.6,198.0],[213.6,199.8],[211.3,197.0],[212.0,193.9],[210.9,193.7],[206.7,191.0],[204.1,187.2],[200.2,186.3],[195.5,184.9],[192.8,189.1],[187.0,194.6],[182.4,197.9],[181.7,200.8],[180.3,201.9],[178.2,200.6],[177.5,199.6],[175.7,198.9],[175.8,197.3],[178.3,197.3],[179.6,194.3],[179.3,192.9],[180.5,189.6],[179.0,187.2],[179.9,184.2],[178.8,182.7],[175.6,182.4],[173.5,176.7]];
+const COAST = SP9.concat(SP4S.slice(1));
+
+// ── 固定パラメータ ──
+const PW        = 800;                          // SVG幅（ページ幅代理）
+const CX_MIN    = 173;                          // 海岸線の左端x（下関）
+const CX_MAX    = 799;                          // 海岸線の右端x（紀伊半島）
+const SCALE     = PW / (CX_MAX - CX_MIN);      // 等倍スケール ≈ 1.278（x=yで同一）
+const MIN_H     = 60;                           // ナビ最低高さ（px）
+const CY_MIN    = Math.min(...COAST.map(([,y])=>y)); // 海岸最北点y ≈ 91
+
+// panY上限: これ以上にするとMIN_Hを下回る
+const PAN_Y_MAX = CY_MIN - MIN_H / SCALE;      // ≈ 44
+
+// ── 可変パラメータ（唯一の操作） ──
+let panY = 10; // この海岸y座標がページy=0になる（上下ドラッグで変える）
+
+// ── 変換: 海岸座標 → ページSVG座標（等倍・左右比率固定） ──
+function toPage(cx, cy) {
+  return {
+    px: (cx - CX_MIN) * SCALE,   // 常に [0, 800]
+    py: (cy - panY)   * SCALE    // panY以下の海岸 = 正の値（ページ内）
+  };
+}
+
+// ── ナビ塗りパスを生成 ──
+function buildNav() {
+  const pts = COAST.map(([cx, cy]) => {
+    const p = toPage(cx, cy);
+    return {
+      px: Math.max(0, Math.min(PW, p.px)),
+      py: Math.max(MIN_H, p.py)   // MIN_H保証
+    };
+  });
+  // COAST配列は東(右px=800)→西(左px=0)の順 → そのまま右→左
+
+  const navH = Math.max(...pts.map(p => p.py));
+
+  let d = `M 0 0 L ${PW} 0 L ${PW} ${pts[0].py.toFixed(1)}`;
+  for (const p of pts) d += ` L ${p.px.toFixed(1)} ${p.py.toFixed(1)}`;
+  d += ` L 0 ${pts[pts.length-1].py.toFixed(1)} Z`;
+
+  return { d, navH };
+}
+
+// ── 描画 ──
+function render() {
+  // ① 地図
+  document.getElementById('coastAll').setAttribute('points',
+    COAST.map(([x,y]) => `${x},${y}`).join(' '));
+
+  document.getElementById('topLine').setAttribute('y1', panY);
+  document.getElementById('topLine').setAttribute('y2', panY);
+  const minY = panY + MIN_H / SCALE;
+  document.getElementById('minLine').setAttribute('y1', minY);
+  document.getElementById('minLine').setAttribute('y2', minY);
+  document.getElementById('hPan').setAttribute('cy', panY);
+  document.getElementById('lPan').setAttribute('y', panY);
+
+  const thinH = Math.max(MIN_H, (CY_MIN - panY) * SCALE);
+  document.getElementById('info1').textContent =
+    `panY=${panY.toFixed(1)}  スケール×${SCALE.toFixed(3)}  最薄部≈${thinH.toFixed(0)}px  MIN_H=${MIN_H}px`;
+
+  // ② ナビプレビュー
+  const { d, navH } = buildNav();
+  document.getElementById('navSvg').setAttribute('viewBox', `0 0 ${PW} ${navH.toFixed(1)}`);
+  document.getElementById('previewDiv').style.height = Math.round(Math.min(navH, 450)) + 'px';
+  document.getElementById('navFill').setAttribute('d', d);
+  document.getElementById('info2').textContent =
+    `最薄部(大阪付近): ${thinH.toFixed(0)}px  最厚部(紀伊): ${navH.toFixed(0)}px`;
+}
+
+// ── ドラッグ操作（上下のみ） ──
+const svg1 = document.getElementById('svg1');
+let drag = false;
+
+function getY(e) {
+  const r = svg1.getBoundingClientRect();
+  const vb = svg1.viewBox.baseVal;
+  const ev = e.touches ? e.touches[0] : e;
+  return (ev.clientY - r.top) / r.height * vb.height;
+}
+
+document.getElementById('hPan').addEventListener('mousedown',  e => { drag = true; e.preventDefault(); });
+document.getElementById('hPan').addEventListener('touchstart', e => { drag = true; e.preventDefault(); }, {passive:false});
+document.getElementById('topLine').addEventListener('mousedown',  e => { drag = true; e.preventDefault(); });
+
+function onMove(e) {
+  if (!drag) return;
+  panY = Math.min(PAN_Y_MAX, getY(e));
+  render();
+  if (e.cancelable) e.preventDefault();
+}
+svg1.addEventListener('mousemove', onMove);
+svg1.addEventListener('touchmove', onMove, {passive:false});
+['mouseup','mouseleave','touchend'].forEach(ev => svg1.addEventListener(ev, () => drag = false));
+
+// ── エクスポート ──
+function exportPath() {
+  const { d, navH } = buildNav();
+  const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${PW} ${navH.toFixed(1)}">\n  <path d="${d}" fill="white"/>\n</svg>`;
+  document.getElementById('exportBox').textContent = svgStr;
+  navigator.clipboard?.writeText(svgStr).then(() => {
+    document.getElementById('exportBox').textContent = '✓ クリップボードにコピーしました\n\n' + svgStr;
+  }).catch(() => {});
+}
+
+render();
+</script>
+</body></html>
