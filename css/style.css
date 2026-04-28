@@ -58,14 +58,14 @@ a  { color: inherit; text-decoration: none; }
 
 /* logo mark + type in nav */
 .nav-logo-mark {
-  width: 77px; height: 77px;
+  width: 51px; height: 51px;
   flex-shrink: 0;
   object-fit: contain;
   filter: invert(1);
   transition: filter 0.4s;
 }
 .nav-logo-type {
-  height: 48px; width: auto;
+  height: 32px; width: auto;
   object-fit: contain;
   filter: invert(1);
   transition: filter 0.4s;
