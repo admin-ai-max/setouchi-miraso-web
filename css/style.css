@@ -13,7 +13,7 @@
   --white:         #fff;
   --serif:         'Noto Serif JP', 'Yu Mincho', serif;
   --sans:          'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
-  --nav-h:         140px;
+  --nav-h:         93px;
   --ease:          cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -58,14 +58,14 @@ a  { color: inherit; text-decoration: none; }
 
 /* logo mark + type in nav */
 .nav-logo-mark {
-  width: 32px; height: 32px;
+  width: 64px; height: 64px;
   flex-shrink: 0;
   object-fit: contain;
   filter: invert(1);
   transition: filter 0.4s;
 }
 .nav-logo-type {
-  height: 20px; width: auto;
+  height: 40px; width: auto;
   object-fit: contain;
   filter: invert(1);
   transition: filter 0.4s;
@@ -778,7 +778,7 @@ section {
 
 /* ── RESPONSIVE ─────────────────────────────── */
 @media (max-width: 960px) {
-  :root { --nav-h: 68px; }
+  :root { --nav-h: 45px; }
   .nav { align-items: center; padding: 0 clamp(1.5rem, 5vw, 4rem); }
   .nav-bg { display: none; }
   .nav.scrolled {
